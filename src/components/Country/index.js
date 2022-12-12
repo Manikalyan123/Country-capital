@@ -2,17 +2,13 @@ import './index.css'
 
 const Country = props => {
   const {list, onViewCountry} = props
-  const {capitalDisplayText, country} = list
+  const {id, capitalDisplayText, country} = list
 
   const onView = () => {
     onViewCountry(country)
   }
 
-  return (
-    <li>
-      <option onClick={onView}>{capitalDisplayText}</option>
-    </li>
-  )
+  return <option>{capitalDisplayText}</option>
 }
 
 export default Country

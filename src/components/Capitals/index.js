@@ -34,7 +34,7 @@ const countryAndCapitalsList = [
 class Capital extends Component {
   state = {country: 'Nepal'}
 
-  onViewCountry = countrys => {
+  onViewCountry = () => {
     this.setState({country: countrys})
   }
 
@@ -45,14 +45,12 @@ class Capital extends Component {
         <div className="content-cont">
           <h1>Countries and capitals</h1>
 
-          <ul>
-            <select id="capital" className="select">
-              {countryAndCapitalsList.map(each => (
-                <Country list={each} key={each.id} />
-              ))}
-            </select>
-            <label htmlFor="capital">is capital of which country</label>
-          </ul>
+          <select id="capital" className="select" onChange={this.onViewCountry}>
+            {countryAndCapitalsList.map(each => (
+              <Country list={each} key={each.id} />
+            ))}
+          </select>
+          <label htmlFor="capital">is capital of which country</label>
 
           <p>{country}</p>
         </div>

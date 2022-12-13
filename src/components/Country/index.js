@@ -1,12 +1,8 @@
 import './index.css'
 
 const Country = props => {
-  const {list, onViewCountry} = props
-  const {id, capitalDisplayText, country} = list
-
-  const onView = () => {
-    onViewCountry(country)
-  }
+  const {list} = props
+  const {capitalDisplayText} = list
 
   return <option>{capitalDisplayText}</option>
 }

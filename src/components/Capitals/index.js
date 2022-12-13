@@ -32,31 +32,37 @@ const countryAndCapitalsList = [
 
 // Write your code here
 class Capital extends Component {
-  state = {country: 'Nepal'}
+  state = {country: countryAndCapitalsList[0].id}
 
-  onViewCountry = countrys => {
-    this.setState({country: countrys})
+  onViewCountry = event => {
+    this.setState({country: event.target.value})
   }
 
   render() {
     const {country} = this.state
+    console.log(country)
+    const capitalCountry = countryAndCapitalsList.find(
+      every => every.id === country,
+    )
+    const capital = capitalCountry.country
+
     return (
       <div className="Cont">
         <div className="content-cont">
           <h1>Countries and capitals</h1>
 
-          <select id="capital" className="select" onChange={this.onViewCountry}>
+          <select
+            value={country}
+            id="capital"
+            className="select"
+            onChange={this.onViewCountry}
+          >
             {countryAndCapitalsList.map(each => (
-              <Country
-                list={each}
-                key={each.id}
-                onViewCountry={this.onViewCountry}
-              />
+              <Country list={each} key={each.id} />
             ))}
           </select>
           <label htmlFor="capital">is capital of which country</label>
-
-          <p>{country}</p>
+          <p>{capital}</p>
         </div>
       </div>
     )

@@ -2,9 +2,9 @@ import './index.css'
 
 const Country = props => {
   const {list} = props
-  const {capitalDisplayText} = list
+  const {id, capitalDisplayText} = list
 
-  return <option>{capitalDisplayText}</option>
+  return <option value={id}>{capitalDisplayText}</option>
 }
 
 export default Country
